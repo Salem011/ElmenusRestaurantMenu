@@ -18,13 +18,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WaS-dC-3P0">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="WaS-dC-3P0" customClass="ItemTableViewCell" customModule="ElmenusResturantMenuTask" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WaS-dC-3P0" id="rb5-T7-Cbi">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6LN-7W-cSl">
+                                            <rect key="frame" x="15" y="15" width="44.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgQ-LT-Iva">
+                                            <rect key="frame" x="15" y="44" width="345" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7d-k0-YYU">
+                                            <rect key="frame" x="15" y="70" width="30" height="30"/>
+                                            <state key="normal" title="Like"/>
+                                            <connections>
+                                                <action selector="onClickLikeItem:" destination="WaS-dC-3P0" eventType="touchUpInside" id="i4v-iW-HiD"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="NgQ-LT-Iva" secondAttribute="trailing" constant="15" id="0iE-sk-Srf"/>
+                                        <constraint firstItem="k7d-k0-YYU" firstAttribute="top" secondItem="NgQ-LT-Iva" secondAttribute="bottom" constant="8" id="88m-bc-Rdp"/>
+                                        <constraint firstItem="6LN-7W-cSl" firstAttribute="leading" secondItem="rb5-T7-Cbi" secondAttribute="leading" constant="15" id="ARu-m5-YmI"/>
+                                        <constraint firstItem="k7d-k0-YYU" firstAttribute="leading" secondItem="rb5-T7-Cbi" secondAttribute="leading" constant="15" id="CJN-Ce-SAZ"/>
+                                        <constraint firstItem="NgQ-LT-Iva" firstAttribute="leading" secondItem="rb5-T7-Cbi" secondAttribute="leading" constant="15" id="D7B-ha-x3N"/>
+                                        <constraint firstItem="NgQ-LT-Iva" firstAttribute="top" secondItem="6LN-7W-cSl" secondAttribute="bottom" constant="8" id="TLn-yV-9S0"/>
+                                        <constraint firstItem="6LN-7W-cSl" firstAttribute="top" secondItem="rb5-T7-Cbi" secondAttribute="top" constant="15" id="ZnY-Wp-Vtl"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="itemDescriptionLabel" destination="NgQ-LT-Iva" id="Ylb-pa-d8l"/>
+                                    <outlet property="itemTitleLabel" destination="6LN-7W-cSl" id="lfT-K0-odH"/>
+                                    <outlet property="likeButton" destination="k7d-k0-YYU" id="QzB-7s-3ea"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
