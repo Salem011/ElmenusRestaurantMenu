@@ -14,7 +14,7 @@ extension APIManager {
     
     class func getMenuComponents () {
         
-        Alamofire.request(baseURL + "menu", encoding: JSONEncoding.default).validate()
+        Alamofire.request(baseURL + "menu", encoding: JSONEncoding.default, headers: headers).validate()
             .responseObject { (response: DataResponse<RestaurantMenBaseResponse>) in
                 
                 print(response.error)
