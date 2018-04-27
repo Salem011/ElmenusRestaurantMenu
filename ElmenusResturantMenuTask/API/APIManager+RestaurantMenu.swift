@@ -12,14 +12,12 @@ import AlamofireObjectMapper
 
 extension APIManager {
     
-    class func getMenuComponents () {
+    class func getMenuComponents (completion : @escaping ([MappedMenuCategory]?, String?) -> Void) {
         
         Alamofire.request(baseURL + "menu", encoding: JSONEncoding.default, headers: headers).validate()
             .responseObject { (response: DataResponse<RestaurantMenBaseResponse>) in
                 
-                print(response.error)
-                print(response.result.value?.categories)
-                
+               completion(response.result.value?.categories, response.result.error?.localizedDescription)
         }
     }
     

@@ -9,7 +9,8 @@
 import UIKit
 
 protocol MenuView {
-    
+    func menuIsLoaded ()
+    func didFailToLoadMenu(with message: String)
 }
 
 class RestaurantMenuViewController: UITableViewController {
@@ -28,6 +29,9 @@ class RestaurantMenuViewController: UITableViewController {
         tableView?.separatorStyle = .none
         
         tableView?.register(UINib(nibName: headerViewIdentifier, bundle: nil), forHeaderFooterViewReuseIdentifier: headerViewIdentifier)
+        
+        // TODO: Display the progress hud
+        viewModel.getMenuCategories()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,4 +44,13 @@ class RestaurantMenuViewController: UITableViewController {
 
 extension RestaurantMenuViewController: MenuView {
     
+    func menuIsLoaded() {
+        tableView.reloadData()
+    }
+    
+    func didFailToLoadMenu(with message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
