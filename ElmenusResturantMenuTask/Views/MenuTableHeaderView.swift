@@ -8,9 +8,18 @@
 
 import UIKit
 
-class MenuTableHeaderView: UIView {
+class MenuTableHeaderView: UITableViewHeaderFooterView {
 
     @IBOutlet weak var headerTitleLabel: UILabel!
+    
+    var index: Int = 0
+    
+    var category: Category? {
+        didSet {
+            headerTitleLabel.text = category?.name
+        }
+    }
+    
     
     
 }

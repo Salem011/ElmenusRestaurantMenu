@@ -42,6 +42,20 @@ class RestaurantMenuViewController: UITableViewController {
     }
  
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerViewIdentifier) as? MenuTableHeaderView else {
+             return UIView()
+        }
+        
+        headerView.index = section
+        headerView.category = viewModel.category(at: section)
+        return headerView
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.categoriesCount()
+    }
+    
 }
 
 extension RestaurantMenuViewController: MenuView {
