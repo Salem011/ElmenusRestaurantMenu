@@ -30,6 +30,9 @@ class MenuTableHeaderView: UITableViewHeaderFooterView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.backgroundView = UIView(frame: self.bounds)
+        self.backgroundView?.backgroundColor = UIColor(red: 196/255, green: 194/255, blue: 194/255, alpha: 1.0)
+        
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapOnHeader)))
     }
     

@@ -50,6 +50,7 @@ class RestaurantMenuViewController: UITableViewController {
         headerView.delegate = viewModel as? MenuHeaderDelegate
         headerView.index = section
         headerView.category = viewModel.category(at: section)
+        headerView.backgroundView?.backgroundColor = .white
         return headerView
     }
     
@@ -67,10 +68,6 @@ class RestaurantMenuViewController: UITableViewController {
         cell.fillCell(with: cellItem)
         return cell
     }
-    
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableViewAutomaticDimension
-//    }
     
 }
 
