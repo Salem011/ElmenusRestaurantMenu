@@ -18,7 +18,7 @@ protocol MenuViewModel {
     func category(at index: Int) -> CategoryViewModel
     
     func itemsCountOfCategory(at index: Int) -> Int
-    
+    func itemOfCategory(at index: Int, itemIndex: Int) -> Item
 }
 
 class RestaurantMenuViewModel {
@@ -63,7 +63,25 @@ extension RestaurantMenuViewModel: MenuViewModel {
     }
     
     func itemsCountOfCategory(at index: Int) -> Int {
-        return menuCategories[index].items.count
+        let cateogry = menuCategories[index]
+        return cateogry.isCollapsed ? cateogry.items.count : 0
     }
+    
+    func itemOfCategory(at index: Int, itemIndex: Int) -> Item {
+        let item = menuCategories[index].items[itemIndex]
+        return Item(id: item.id ?? -1, name: item.name ?? "N/A", details: item.itemDescription ?? "N/A")
+    }
+    
 
+}
+
+extension RestaurantMenuViewModel: MenuHeaderDelegate {
+    
+    func didTabOnHeader(on view: MenuTableHeaderView, at index: Int) {
+        let tabbedCategory = menuCategories[index]
+        tabbedCategory.isCollapsed = !tabbedCategory.isCollapsed
+        
+        self.view.reloadMenuTable()
+    }
+    
 }

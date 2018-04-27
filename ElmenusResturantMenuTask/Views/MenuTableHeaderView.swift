@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol MenuHeaderDelegate: class {
+    func didTabOnHeader (on view: MenuTableHeaderView, at index: Int)
+}
+
 class MenuTableHeaderView: UITableViewHeaderFooterView {
 
     @IBOutlet weak var headerTitleLabel: UILabel!
+    
+    weak var delegate: MenuHeaderDelegate?
     
     var index: Int = 0
     
@@ -28,6 +34,7 @@ class MenuTableHeaderView: UITableViewHeaderFooterView {
     }
     
     @objc fileprivate func didTapOnHeader() {
+        delegate?.didTabOnHeader(on: self, at: index)
     }
 
     

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="WaS-dC-3P0" customClass="ItemTableViewCell" customModule="ElmenusResturantMenuTask" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="100" id="WaS-dC-3P0" customClass="ItemTableViewCell" customModule="ElmenusResturantMenuTask" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WaS-dC-3P0" id="rb5-T7-Cbi">
@@ -51,8 +51,10 @@
                                         <constraint firstItem="6LN-7W-cSl" firstAttribute="leading" secondItem="rb5-T7-Cbi" secondAttribute="leading" constant="15" id="ARu-m5-YmI"/>
                                         <constraint firstItem="k7d-k0-YYU" firstAttribute="leading" secondItem="rb5-T7-Cbi" secondAttribute="leading" constant="15" id="CJN-Ce-SAZ"/>
                                         <constraint firstItem="NgQ-LT-Iva" firstAttribute="leading" secondItem="rb5-T7-Cbi" secondAttribute="leading" constant="15" id="D7B-ha-x3N"/>
+                                        <constraint firstItem="NgQ-LT-Iva" firstAttribute="top" secondItem="rb5-T7-Cbi" secondAttribute="top" constant="44" id="Rpx-Cw-oaC"/>
                                         <constraint firstItem="NgQ-LT-Iva" firstAttribute="top" secondItem="6LN-7W-cSl" secondAttribute="bottom" constant="8" id="TLn-yV-9S0"/>
                                         <constraint firstItem="6LN-7W-cSl" firstAttribute="top" secondItem="rb5-T7-Cbi" secondAttribute="top" constant="15" id="ZnY-Wp-Vtl"/>
+                                        <constraint firstAttribute="bottom" secondItem="NgQ-LT-Iva" secondAttribute="bottom" constant="37.5" id="iiQ-8Z-04X"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

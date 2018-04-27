@@ -20,6 +20,11 @@ class ItemTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
+    func fillCell (with item: Item) {
+        itemTitleLabel.text = item.name
+        itemDescriptionLabel.text = item.details
+    }
+    
     @IBAction func onClickLikeItem(_ sender: UIButton) {
     }
     
