@@ -15,6 +15,9 @@
 		4F2EAEB6209374EF0051976A /* RestaurantMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EAEB5209374EF0051976A /* RestaurantMenuViewController.swift */; };
 		4F2EAEB9209376220051976A /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EAEB8209376220051976A /* APIManager.swift */; };
 		4F2EAEBB209376B80051976A /* APIManager+RestaurantMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EAEBA209376B80051976A /* APIManager+RestaurantMenu.swift */; };
+		4F2EAEC020937A250051976A /* RestaurantMenBaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EAEBF20937A250051976A /* RestaurantMenBaseResponse.swift */; };
+		4F2EAEC220937AC90051976A /* MappedMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EAEC120937AC90051976A /* MappedMenuItem.swift */; };
+		4F2EAEC420937BB60051976A /* MappedMenuCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EAEC320937BB60051976A /* MappedMenuCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		4F2EAEB5209374EF0051976A /* RestaurantMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMenuViewController.swift; sourceTree = "<group>"; };
 		4F2EAEB8209376220051976A /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		4F2EAEBA209376B80051976A /* APIManager+RestaurantMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIManager+RestaurantMenu.swift"; sourceTree = "<group>"; };
+		4F2EAEBF20937A250051976A /* RestaurantMenBaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMenBaseResponse.swift; sourceTree = "<group>"; };
+		4F2EAEC120937AC90051976A /* MappedMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappedMenuItem.swift; sourceTree = "<group>"; };
+		4F2EAEC320937BB60051976A /* MappedMenuCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappedMenuCategory.swift; sourceTree = "<group>"; };
 		89299E852E3AFA8B55A453F1 /* Pods_ElmenusResturantMenuTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElmenusResturantMenuTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -65,6 +71,7 @@
 		4F2EAEA1209370DF0051976A /* ElmenusResturantMenuTask */ = {
 			isa = PBXGroup;
 			children = (
+				4F2EAEBD209379990051976A /* Models */,
 				4F2EAEB7209376120051976A /* API */,
 				4F2EAEB4209374A60051976A /* Controllers */,
 				4F2EAEA2209370DF0051976A /* AppDelegate.swift */,
@@ -87,10 +94,28 @@
 		4F2EAEB7209376120051976A /* API */ = {
 			isa = PBXGroup;
 			children = (
+				4F2EAEBE20937A0B0051976A /* MappedObjects */,
 				4F2EAEB8209376220051976A /* APIManager.swift */,
 				4F2EAEBA209376B80051976A /* APIManager+RestaurantMenu.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		4F2EAEBD209379990051976A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4F2EAEBE20937A0B0051976A /* MappedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				4F2EAEBF20937A250051976A /* RestaurantMenBaseResponse.swift */,
+				4F2EAEC120937AC90051976A /* MappedMenuItem.swift */,
+				4F2EAEC320937BB60051976A /* MappedMenuCategory.swift */,
+			);
+			path = MappedObjects;
 			sourceTree = "<group>";
 		};
 		9A91226CD54285EA261C3067 /* Pods */ = {
@@ -230,8 +255,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F2EAEBB209376B80051976A /* APIManager+RestaurantMenu.swift in Sources */,
+				4F2EAEC020937A250051976A /* RestaurantMenBaseResponse.swift in Sources */,
 				4F2EAEB9209376220051976A /* APIManager.swift in Sources */,
 				4F2EAEA3209370DF0051976A /* AppDelegate.swift in Sources */,
+				4F2EAEC420937BB60051976A /* MappedMenuCategory.swift in Sources */,
+				4F2EAEC220937AC90051976A /* MappedMenuItem.swift in Sources */,
 				4F2EAEB6209374EF0051976A /* RestaurantMenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
