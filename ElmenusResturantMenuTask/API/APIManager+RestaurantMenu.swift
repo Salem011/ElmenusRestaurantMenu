@@ -8,13 +8,18 @@
 
 import Foundation
 import Alamofire
+import AlamofireObjectMapper
 
 extension APIManager {
     
     class func getMenuComponents () {
         
-        Alamofire.request(baseURL + "menu", encoding: JSONEncoding.default).responseJSON { (response) in
-            print(response.result.value)
+        Alamofire.request(baseURL + "menu", encoding: JSONEncoding.default).validate()
+            .responseObject { (response: DataResponse<RestaurantMenBaseResponse>) in
+                
+                print(response.error)
+                print(response.result.value?.categories)
+                
         }
     }
     
