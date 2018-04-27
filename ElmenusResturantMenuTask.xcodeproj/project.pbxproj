@@ -22,6 +22,7 @@
 		4F2EAEC920938B3B0051976A /* MenuTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2EAEC820938B3B0051976A /* MenuTableHeaderView.xib */; };
 		4F2EAECB20938B5F0051976A /* MenuTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EAECA20938B5F0051976A /* MenuTableHeaderView.swift */; };
 		4F2EAECE20938F0B0051976A /* RestaurantMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EAECD20938F0B0051976A /* RestaurantMenuViewModel.swift */; };
+		4F2EAED02093A1890051976A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EAECF2093A1890051976A /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		4F2EAEC820938B3B0051976A /* MenuTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableHeaderView.xib; sourceTree = "<group>"; };
 		4F2EAECA20938B5F0051976A /* MenuTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableHeaderView.swift; sourceTree = "<group>"; };
 		4F2EAECD20938F0B0051976A /* RestaurantMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMenuViewModel.swift; sourceTree = "<group>"; };
+		4F2EAECF2093A1890051976A /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		89299E852E3AFA8B55A453F1 /* Pods_ElmenusResturantMenuTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElmenusResturantMenuTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -114,6 +116,7 @@
 		4F2EAEBD209379990051976A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4F2EAECF2093A1890051976A /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				4F2EAEC220937AC90051976A /* MappedMenuItem.swift in Sources */,
 				4F2EAEB6209374EF0051976A /* RestaurantMenuViewController.swift in Sources */,
 				4F2EAECB20938B5F0051976A /* MenuTableHeaderView.swift in Sources */,
+				4F2EAED02093A1890051976A /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,12 +14,22 @@ class MenuTableHeaderView: UITableViewHeaderFooterView {
     
     var index: Int = 0
     
-    var category: Category? {
+    var category: CategoryViewModel? {
         didSet {
             headerTitleLabel.text = category?.name
         }
     }
     
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapOnHeader)))
+    }
+    
+    @objc fileprivate func didTapOnHeader() {
+    }
+
     
     
 }

@@ -8,15 +8,14 @@
 
 import Foundation
 
-
-typealias Category = (id: Int, name: String)
+typealias CategoryViewModel = (id: Int, name: String)
 typealias Item = (id: Int, name: String, details: String)
 
 protocol MenuViewModel {
     func retrieveMenuCategories()
     
     func categoriesCount () -> Int
-    func category(at index: Int) -> Category
+    func category(at index: Int) -> CategoryViewModel
     
     func itemsCountOfCategory(at index: Int) -> Int
     
@@ -26,12 +25,12 @@ class RestaurantMenuViewModel {
     
     var view: MenuView!
     
-    var menuCategories: [MappedMenuCategory]!
+    var menuCategories: [Category]!
     
     
     init(view: MenuView) {
         self.view = view
-        menuCategories = [MappedMenuCategory]()
+        menuCategories = [Category]()
     }
     
 }
@@ -44,7 +43,12 @@ extension RestaurantMenuViewModel: MenuViewModel {
                 self.view.didFailToLoadMenu(with: errorMessage ?? "The Restaurant Menu can't be loaded right now. Please Try again later.")
                 return
             }
-            self.menuCategories = categories
+            
+            var categoriesObjects = [Category]()
+            for mappedCategory in categories {
+                categoriesObjects.append(Category(from: mappedCategory))
+            }
+            self.menuCategories = categoriesObjects
             self.view.menuIsLoaded()
         }
     }
@@ -53,16 +57,13 @@ extension RestaurantMenuViewModel: MenuViewModel {
         return menuCategories.count
     }
     
-    func category(at index: Int) -> Category {
-        let mappedCategory = menuCategories[index]
-        return Category(id: mappedCategory.id ?? -1, name: mappedCategory.name ?? "N/A")
+    func category(at index: Int) -> CategoryViewModel {
+        let category = menuCategories[index]
+        return CategoryViewModel(id: category.id, name: category.name )
     }
     
     func itemsCountOfCategory(at index: Int) -> Int {
-        guard let items = menuCategories[index].items else {
-            return 0
-        }
-        return items.count
+        return menuCategories[index].items.count
     }
 
 }
