@@ -21,6 +21,7 @@
 		4F2EAEC7209389DC0051976A /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EAEC6209389DC0051976A /* ItemTableViewCell.swift */; };
 		4F2EAEC920938B3B0051976A /* MenuTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2EAEC820938B3B0051976A /* MenuTableHeaderView.xib */; };
 		4F2EAECB20938B5F0051976A /* MenuTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EAECA20938B5F0051976A /* MenuTableHeaderView.swift */; };
+		4F2EAECE20938F0B0051976A /* RestaurantMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2EAECD20938F0B0051976A /* RestaurantMenuViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		4F2EAEC6209389DC0051976A /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		4F2EAEC820938B3B0051976A /* MenuTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableHeaderView.xib; sourceTree = "<group>"; };
 		4F2EAECA20938B5F0051976A /* MenuTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableHeaderView.swift; sourceTree = "<group>"; };
+		4F2EAECD20938F0B0051976A /* RestaurantMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMenuViewModel.swift; sourceTree = "<group>"; };
 		89299E852E3AFA8B55A453F1 /* Pods_ElmenusResturantMenuTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElmenusResturantMenuTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -77,6 +79,7 @@
 		4F2EAEA1209370DF0051976A /* ElmenusResturantMenuTask */ = {
 			isa = PBXGroup;
 			children = (
+				4F2EAECC20938EE80051976A /* ViewModels */,
 				4F2EAEC5209389BB0051976A /* Views */,
 				4F2EAEBD209379990051976A /* Models */,
 				4F2EAEB7209376120051976A /* API */,
@@ -133,6 +136,14 @@
 				4F2EAECA20938B5F0051976A /* MenuTableHeaderView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4F2EAECC20938EE80051976A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4F2EAECD20938F0B0051976A /* RestaurantMenuViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		9A91226CD54285EA261C3067 /* Pods */ = {
@@ -272,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F2EAECE20938F0B0051976A /* RestaurantMenuViewModel.swift in Sources */,
 				4F2EAEBB209376B80051976A /* APIManager+RestaurantMenu.swift in Sources */,
 				4F2EAEC020937A250051976A /* RestaurantMenBaseResponse.swift in Sources */,
 				4F2EAEB9209376220051976A /* APIManager.swift in Sources */,
