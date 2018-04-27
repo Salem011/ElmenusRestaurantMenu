@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import PKHUD
+
 
 protocol MenuView {
     func menuIsLoaded ()
@@ -30,8 +32,8 @@ class RestaurantMenuViewController: UITableViewController {
         
         tableView?.register(UINib(nibName: headerViewIdentifier, bundle: nil), forHeaderFooterViewReuseIdentifier: headerViewIdentifier)
         
-        // TODO: Display the progress hud
-        viewModel.getMenuCategories()
+        HUD.show(.progress, onView: self.view)
+        viewModel.retrieveMenuCategories()
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,10 +47,12 @@ class RestaurantMenuViewController: UITableViewController {
 extension RestaurantMenuViewController: MenuView {
     
     func menuIsLoaded() {
+        HUD.flash(.success)
         tableView.reloadData()
     }
     
     func didFailToLoadMenu(with message: String) {
+        HUD.flash(.error)
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
