@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ItemCellDelegate: class {
-    func didPressLikeItem(itemCell: ItemTableViewCell, item: ItemViewModel)
+    func didPressLikeItem(itemCell: ItemTableViewCell, itemIndex: (section: Int, row: Int), isLiked: Bool)
 }
 
 class ItemTableViewCell: UITableViewCell {
@@ -21,13 +21,17 @@ class ItemTableViewCell: UITableViewCell {
     
     @IBOutlet weak var likeButton: UIButton!
     
+    // Item to be presented
     var item: ItemViewModel! {
         didSet {
             itemTitleLabel.text = item.name
             itemDescriptionLabel.text = item.details
+            likeButton.setTitle(item.isLiked ? "Unlike" : "Like" , for: .normal)
         }
     }
     
+    // (Section, Index) - Used to identify the item's exact index to update it when the item is liked/unliked.
+    var itemIndex: (Int, Int) = (0, 0)
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,7 +45,7 @@ class ItemTableViewCell: UITableViewCell {
             sender.setTitle("Like", for: .normal)
         }
         
-        delegate?.didPressLikeItem(itemCell: self, item: item)
+        delegate?.didPressLikeItem(itemCell: self, itemIndex: itemIndex, isLiked: item.isLiked)
     }
     
 }

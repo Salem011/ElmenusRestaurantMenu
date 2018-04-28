@@ -92,9 +92,11 @@ extension RestaurantMenuViewModel: MenuHeaderDelegate {
 
 
 extension RestaurantMenuViewModel: ItemCellDelegate {
-    
-    func didPressLikeItem(itemCell: ItemTableViewCell, item: ItemViewModel) {
-        
+    func didPressLikeItem(itemCell: ItemTableViewCell, itemIndex: (section: Int, row: Int), isLiked: Bool) {
+        let item = menuCategories[itemIndex.section].items[itemIndex.row]
+        item.isLiked = isLiked
     }
+    
+    
     
 }
