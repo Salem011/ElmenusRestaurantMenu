@@ -84,6 +84,16 @@ extension RestaurantMenuViewModel: MenuHeaderDelegate {
         let tabbedCategory = menuCategories[index]
         tabbedCategory.isExpanded = !tabbedCategory.isExpanded
         
+        // Collapse the expanded section
+        if tabbedCategory.isExpanded {
+            for category in menuCategories {
+                if category.id != tabbedCategory.id {
+                    category.isExpanded = false
+                }
+            }
+            self.view.reloadMenuTableData()
+        }
+        
         self.view.reloadMenuTable(at: index, isExpanded: tabbedCategory.isExpanded)
     }
     

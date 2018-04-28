@@ -15,6 +15,8 @@ protocol MenuView {
     func didFailToLoadMenu(with message: String)
     
     func reloadMenuTable(at section: Int, isExpanded: Bool)
+    
+    func reloadMenuTableData()
 }
 
 class RestaurantMenuViewController: UITableViewController {
@@ -89,22 +91,30 @@ extension RestaurantMenuViewController: MenuView {
         self.present(alert, animated: true, completion: nil)
     }
 
+    func reloadMenuTableData () {
+        tableView.reloadData()
+    }
+    
     func reloadMenuTable(at section: Int, isExpanded: Bool) {
         tableView.beginUpdates()
         tableView.reloadSections([section], with: .fade)
         tableView.endUpdates()
         
-        if !isExpanded {
-            // Delay resetting the content insets of the table view to happed after the reload sections animation is done
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                self.tableView.contentInset.top = 0
+        if isExpanded {
+            let cells = self.tableView.visibleCells
+            var heightOfVisibleSection: CGFloat = 0
+            for cell in cells {
+                heightOfVisibleSection += cell.frame.height
             }
-            return
+            let screenHeight = UIScreen.main.bounds.height - 20 /*status bar height*/
+            if heightOfVisibleSection < screenHeight {
+                tableView.tableFooterView = UIView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: tableView.bounds.width, height: screenHeight - heightOfVisibleSection)))
+            }
+            let indexPath = IndexPath(row: 0, section: section)
+            tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        }else {
+            tableView.tableFooterView = UIView()
         }
-        
-        // Move table view content insets to be at the expanded cell position
-        let sectionRect = self.tableView.rectForHeader(inSection: section)
-        self.tableView.contentInset.top = -sectionRect.origin.y
         
     }
 }
