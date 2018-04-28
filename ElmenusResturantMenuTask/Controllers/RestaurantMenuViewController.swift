@@ -90,13 +90,12 @@ extension RestaurantMenuViewController: MenuView {
     }
 
     func reloadMenuTable(at section: Int, isExpanded: Bool) {
-        let indexPath = IndexPath(row: 0, section: section)
-        
-        self.tableView.beginUpdates()
-        self.tableView.reloadSections([section], with: .fade)
-        self.tableView.endUpdates()
+        tableView.beginUpdates()
+        tableView.reloadSections([section], with: .fade)
+        tableView.endUpdates()
         
         if isExpanded {
+            let indexPath = IndexPath(row: 0, section: section)
             tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         }
     }
