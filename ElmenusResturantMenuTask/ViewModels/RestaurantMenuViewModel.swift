@@ -81,7 +81,7 @@ extension RestaurantMenuViewModel: MenuHeaderDelegate {
         let tabbedCategory = menuCategories[index]
         tabbedCategory.isCollapsed = !tabbedCategory.isCollapsed
         
-        self.view.reloadMenuTable()
+        self.view.reloadMenuTable(at: tabbedCategory.isCollapsed ? index : -1)
     }
     
 }
