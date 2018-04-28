@@ -67,7 +67,7 @@ class RestaurantMenuViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell") as! ItemTableViewCell
         let cellItem = viewModel.itemOfCategory(at: indexPath.section , itemIndex: indexPath.row)
-        cell.fillCell(with: cellItem)
+        cell.item = cellItem
         return cell
     }
     

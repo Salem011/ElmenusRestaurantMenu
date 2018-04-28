@@ -8,9 +8,11 @@
 
 import Foundation
 
+// Category and Items view models that should be passed to the view. For similicity I created them as typealias but in general it should be view model classes.
 typealias CategoryViewModel = (id: Int, name: String)
 typealias Item = (id: Int, name: String, details: String)
 
+// The Restaurant View model protocol that defines the functions the view should know about. 
 protocol MenuViewModel {
     func retrieveMenuCategories()
     
@@ -64,6 +66,7 @@ extension RestaurantMenuViewModel: MenuViewModel {
     
     func itemsCountOfCategory(at index: Int) -> Int {
         let cateogry = menuCategories[index]
+        // Return 0 when the section is collapsed and return the items count when the section is expanded to present the items cells
         return cateogry.isCollapsed ? cateogry.items.count : 0
     }
     
@@ -81,6 +84,7 @@ extension RestaurantMenuViewModel: MenuHeaderDelegate {
         let tabbedCategory = menuCategories[index]
         tabbedCategory.isCollapsed = !tabbedCategory.isCollapsed
         
+        // Send -1 when the section is collapsed to prevent the tableview from scrolling
         self.view.reloadMenuTable(at: tabbedCategory.isCollapsed ? index : -1)
     }
     
