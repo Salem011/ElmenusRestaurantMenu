@@ -52,7 +52,6 @@ class RestaurantMenuViewController: UITableViewController {
         headerView.delegate = viewModel as? MenuHeaderDelegate
         headerView.index = section
         headerView.category = viewModel.category(at: section)
-        headerView.backgroundView?.backgroundColor = .white
         return headerView
     }
     
