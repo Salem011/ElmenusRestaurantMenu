@@ -10,7 +10,7 @@ import Foundation
 
 // Category and Items view models that should be passed to the view. For similicity I created them as typealias but in general it should be view model classes.
 typealias CategoryViewModel = (id: Int, name: String)
-typealias Item = (id: Int, name: String, details: String)
+typealias ItemViewModel = (id: Int, name: String, details: String, isLiked: Bool)
 
 // The Restaurant View model protocol that defines the functions the view should know about. 
 protocol MenuViewModel {
@@ -20,7 +20,7 @@ protocol MenuViewModel {
     func category(at index: Int) -> CategoryViewModel
     
     func itemsCountOfCategory(at index: Int) -> Int
-    func itemOfCategory(at index: Int, itemIndex: Int) -> Item
+    func itemOfCategory(at index: Int, itemIndex: Int) -> ItemViewModel
 }
 
 class RestaurantMenuViewModel {
@@ -70,9 +70,9 @@ extension RestaurantMenuViewModel: MenuViewModel {
         return cateogry.isCollapsed ? cateogry.items.count : 0
     }
     
-    func itemOfCategory(at index: Int, itemIndex: Int) -> Item {
+    func itemOfCategory(at index: Int, itemIndex: Int) -> ItemViewModel {
         let item = menuCategories[index].items[itemIndex]
-        return Item(id: item.id ?? -1, name: item.name ?? "N/A", details: item.itemDescription ?? "N/A")
+        return ItemViewModel(id: item.id ?? -1, name: item.name ?? "N/A", details: item.itemDescription ?? "N/A", isLiked: false)
     }
     
 
@@ -86,6 +86,15 @@ extension RestaurantMenuViewModel: MenuHeaderDelegate {
         
         // Send -1 when the section is collapsed to prevent the tableview from scrolling
         self.view.reloadMenuTable(at: tabbedCategory.isCollapsed ? index : -1)
+    }
+    
+}
+
+
+extension RestaurantMenuViewModel: ItemCellDelegate {
+    
+    func didPressLikeItem(itemCell: ItemTableViewCell, item: ItemViewModel, isLiked: Bool) {
+        
     }
     
 }

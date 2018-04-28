@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ItemCellDelegate: class {
-    func didPressLikeItem(itemCell: ItemTableViewCell, item: Item, isLiked: Bool)
+    func didPressLikeItem(itemCell: ItemTableViewCell, item: ItemViewModel, isLiked: Bool)
 }
 
 class ItemTableViewCell: UITableViewCell {
@@ -23,7 +23,7 @@ class ItemTableViewCell: UITableViewCell {
     
     var isLiked = false
     
-    var item: Item! {
+    var item: ItemViewModel! {
         didSet {
             itemTitleLabel.text = item.name
             itemDescriptionLabel.text = item.details
