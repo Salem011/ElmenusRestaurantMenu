@@ -94,10 +94,18 @@ extension RestaurantMenuViewController: MenuView {
         tableView.reloadSections([section], with: .fade)
         tableView.endUpdates()
         
-        if isExpanded {
-            let indexPath = IndexPath(row: 0, section: section)
-            tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        if !isExpanded {
+            // Delay resetting the content insets of the table view to happed after the reload sections animation is done
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.tableView.contentInset.top = 0
+            }
+            return
         }
+        
+        // Move table view content insets to be at the expanded cell position
+        let sectionRect = self.tableView.rectForHeader(inSection: section)
+        self.tableView.contentInset.top = -sectionRect.origin.y
+        
     }
 }
 
