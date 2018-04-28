@@ -26,12 +26,14 @@ class RestaurantMenuViewController: UITableViewController {
         super.viewDidLoad()
         
         viewModel = RestaurantMenuViewModel(view: self)
+                
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.sectionHeaderHeight = 70
         
-        tableView?.estimatedRowHeight = 100
-        tableView?.rowHeight = UITableViewAutomaticDimension
-        tableView?.sectionHeaderHeight = 70
-        
-        tableView?.register(UINib(nibName: headerViewIdentifier, bundle: nil), forHeaderFooterViewReuseIdentifier: headerViewIdentifier)
+        tableView.register(UINib(nibName: headerViewIdentifier, bundle: nil), forHeaderFooterViewReuseIdentifier: headerViewIdentifier)
+        tableView.tableFooterView = UIView()
+
         
         HUD.show(.progress, onView: self.view)
         viewModel.retrieveMenuCategories()
