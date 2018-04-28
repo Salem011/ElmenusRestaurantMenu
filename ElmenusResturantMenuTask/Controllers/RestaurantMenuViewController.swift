@@ -14,7 +14,7 @@ protocol MenuView {
     func menuIsLoaded ()
     func didFailToLoadMenu(with message: String)
     
-    func reloadMenuTable(at section: Int)
+    func reloadMenuTable(at section: Int, isExpanded: Bool)
 }
 
 class RestaurantMenuViewController: UITableViewController {
@@ -89,11 +89,14 @@ extension RestaurantMenuViewController: MenuView {
         self.present(alert, animated: true, completion: nil)
     }
 
-    func reloadMenuTable(at section: Int) {
+    func reloadMenuTable(at section: Int, isExpanded: Bool) {
         let indexPath = IndexPath(row: 0, section: section)
-
-        self.tableView.reloadData()
-        if section != -1 {
+        
+        self.tableView.beginUpdates()
+        self.tableView.reloadSections([section], with: .fade)
+        self.tableView.endUpdates()
+        
+        if isExpanded {
             tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         }
     }

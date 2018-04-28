@@ -84,19 +84,16 @@ extension RestaurantMenuViewModel: MenuHeaderDelegate {
         let tabbedCategory = menuCategories[index]
         tabbedCategory.isExpanded = !tabbedCategory.isExpanded
         
-        // Send -1 when the section is collapsed to prevent the tableview from scrolling
-        self.view.reloadMenuTable(at: tabbedCategory.isExpanded ? index : -1)
+        self.view.reloadMenuTable(at: index, isExpanded: tabbedCategory.isExpanded)
     }
     
 }
 
 
 extension RestaurantMenuViewModel: ItemCellDelegate {
+    
     func didPressLikeItem(itemCell: ItemTableViewCell, itemIndex: (section: Int, row: Int), isLiked: Bool) {
         let item = menuCategories[itemIndex.section].items[itemIndex.row]
         item.isLiked = isLiked
     }
-    
-    
-    
 }
