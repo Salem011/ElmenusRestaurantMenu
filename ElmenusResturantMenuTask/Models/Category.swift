@@ -13,7 +13,7 @@ class Category {
     var id: Int
     var name: String
     var items: [Item]
-    var isCollapsed: Bool
+    var isExpanded: Bool
     
     init(from mappedCategory: MappedMenuCategory) {
         self.id = mappedCategory.id ?? -1
@@ -26,7 +26,7 @@ class Category {
             }
         }
         self.items = categoryItems
-        self.isCollapsed = false
+        self.isExpanded = false
     }
     
 }

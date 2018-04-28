@@ -67,7 +67,7 @@ extension RestaurantMenuViewModel: MenuViewModel {
     func itemsCountOfCategory(at index: Int) -> Int {
         let cateogry = menuCategories[index]
         // Return 0 when the section is collapsed and return the items count when the section is expanded to present the items cells
-        return cateogry.isCollapsed ? cateogry.items.count : 0
+        return cateogry.isExpanded ? cateogry.items.count : 0
     }
     
     func itemOfCategory(at index: Int, itemIndex: Int) -> ItemViewModel {
@@ -82,10 +82,10 @@ extension RestaurantMenuViewModel: MenuHeaderDelegate {
     
     func didTabOnHeader(on view: MenuTableHeaderView, at index: Int) {
         let tabbedCategory = menuCategories[index]
-        tabbedCategory.isCollapsed = !tabbedCategory.isCollapsed
+        tabbedCategory.isExpanded = !tabbedCategory.isExpanded
         
         // Send -1 when the section is collapsed to prevent the tableview from scrolling
-        self.view.reloadMenuTable(at: tabbedCategory.isCollapsed ? index : -1)
+        self.view.reloadMenuTable(at: tabbedCategory.isExpanded ? index : -1)
     }
     
 }
