@@ -72,7 +72,7 @@ extension RestaurantMenuViewModel: MenuViewModel {
     
     func itemOfCategory(at index: Int, itemIndex: Int) -> ItemViewModel {
         let item = menuCategories[index].items[itemIndex]
-        return ItemViewModel(id: item.id ?? -1, name: item.name ?? "N/A", details: item.itemDescription ?? "N/A", isLiked: false)
+        return ItemViewModel(id: item.id, name: item.name, details: item.details, isLiked: item.isLiked)
     }
     
 
