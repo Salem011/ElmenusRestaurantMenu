@@ -100,22 +100,34 @@ extension RestaurantMenuViewController: MenuView {
         tableView.reloadSections([section], with: .fade)
         tableView.endUpdates()
         
-        if isExpanded {
-            let cells = self.tableView.visibleCells
-            var heightOfVisibleSection: CGFloat = 0
-            for cell in cells {
-                heightOfVisibleSection += cell.frame.height
-            }
-            let screenHeight = UIScreen.main.bounds.height - 20 /*status bar height*/
-            if heightOfVisibleSection < screenHeight {
-                tableView.tableFooterView = UIView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: tableView.bounds.width, height: screenHeight - heightOfVisibleSection)))
-            }
-            let indexPath = IndexPath(row: 0, section: section)
-            tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-        }else {
+        if !isExpanded {
             tableView.tableFooterView = UIView()
+            return
         }
         
+        scrollSmallSectionsToTop()
+        let indexPath = IndexPath(row: 0, section: section)
+        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+    }
+    
+    /*
+     Last two sections contain a small number of cells and the scrolling space will not be enough to scroll the section to the top of the screen when calling scrollToRow and to handle this issue, an emtpy footer view will be added to the table with the required height to move the expanded section to the top of the screen
+     */
+    func scrollSmallSectionsToTop() {
+        // calculate the height of visible cells of the expanded section
+        let visibleCells = self.tableView.visibleCells
+        var heightOfVisibleSection: CGFloat = 0
+        for cell in visibleCells {
+            heightOfVisibleSection += cell.frame.height
+        }
+        
+        let screenHeight = UIScreen.main.bounds.height - 20 // Decrease the status bar height
+        
+        // add the footer view if the visible cells height is less than the screen height
+        if heightOfVisibleSection < screenHeight {
+            tableView.tableFooterView = UIView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: tableView.bounds.width, height: screenHeight - heightOfVisibleSection)))
+        }
+
     }
 }
 
