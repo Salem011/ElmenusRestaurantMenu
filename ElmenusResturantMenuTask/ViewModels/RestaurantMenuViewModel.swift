@@ -9,7 +9,7 @@
 import Foundation
 
 // Category and Items view models that should be passed to the view. For similicity I created them as typealias but in general it should be view model classes.
-typealias CategoryViewModel = (id: Int, name: String)
+typealias CategoryViewModel = (id: Int, name: String, isExpanded: Bool)
 typealias ItemViewModel = (id: Int, name: String, details: String, isLiked: Bool)
 
 // The Restaurant View model protocol that defines the functions the view should know about. 
@@ -61,7 +61,7 @@ extension RestaurantMenuViewModel: MenuViewModel {
     
     func category(at index: Int) -> CategoryViewModel {
         let category = menuCategories[index]
-        return CategoryViewModel(id: category.id, name: category.name )
+        return CategoryViewModel(id: category.id, name: category.name, isExpanded: category.isExpanded)
     }
     
     func itemsCountOfCategory(at index: Int) -> Int {

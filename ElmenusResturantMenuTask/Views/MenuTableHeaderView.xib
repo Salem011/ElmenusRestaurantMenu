@@ -48,6 +48,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="arrowLabel" destination="ShP-Lt-sEY" id="ptI-gD-waX"/>
                 <outlet property="headerTitleLabel" destination="LO5-F2-Ngg" id="ZtC-mR-h5o"/>
             </connections>
         </view>

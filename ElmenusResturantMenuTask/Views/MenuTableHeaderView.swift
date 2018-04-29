@@ -15,6 +15,7 @@ protocol MenuHeaderDelegate: class {
 class MenuTableHeaderView: UITableViewHeaderFooterView {
 
     @IBOutlet weak var headerTitleLabel: UILabel!
+    @IBOutlet weak var arrowLabel: UILabel!
     
     weak var delegate: MenuHeaderDelegate?
     
@@ -23,10 +24,11 @@ class MenuTableHeaderView: UITableViewHeaderFooterView {
     var category: CategoryViewModel? {
         didSet {
             headerTitleLabel.text = category?.name
+            arrowLabel.text = category!.isExpanded ? "△" : "▽"
         }
     }
     
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
