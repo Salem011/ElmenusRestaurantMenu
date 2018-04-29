@@ -35,6 +35,7 @@ class ItemTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        itemTitleLabel.adjustsFontSizeToFitWidth = true
     }
     
     @IBAction func onClickLikeItem(_ sender: UIButton) {
